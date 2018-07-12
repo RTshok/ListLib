@@ -192,36 +192,51 @@ void print(List*list) {
 
 Node *theNode = list->head ; 
 
-if(list->head==NULL){
-printf("the List is empty!\n");
-return;
-}
+if(list->head==NULL)
+		{
+	printf("the List is empty!\n");
+	return;
+		}
 
 if(list->SizeOfElements == sizeof(char*))
-{
-int i = 0;
-while(theNode!=NULL)
-{	
+		{
+	int i = 0;
+	while(theNode!=NULL)
+	{	
 	printf("theNode %i has data :%s\n",i,*(char**)theNode->data);
 	theNode = theNode->next;
 	i++;
-}
-printf("the Length is : %i \n",list->Length);
-return;
-}
+	}
+	printf("the Length is : %i \n",list->Length);
+	return;
+		}
 
-if(list->SizeOfElements == sizeof(int)){
+if(list->SizeOfElements == sizeof(int))
+		{
 
-int i = 0;
-while(theNode!=NULL)
-{	
+	int i = 0;
+	while(theNode!=NULL)
+	{	
 	printf("theNode %i has data :%d\n",i,*(int*)theNode->data);
 	theNode = theNode->next;
 	i++;
-}
-printf("the Length is : %i \n",list->Length);
-return;
-}
+	}
+	printf("the Length is : %i \n",list->Length);
+	return;
+		}
+
+if(list->SizeOfElements == sizeof(double))
+		{
+	int i = 0;
+	while(theNode!=NULL)
+	{	
+	printf("theNode %i has data :%f\n",i,*(double*)theNode->data);
+	theNode = theNode->next;
+	i++;
+	}
+	printf("the Length is : %i \n",list->Length);
+	return;
+		}
 }
 
 void TestIntList()
@@ -270,4 +285,28 @@ print(&stringList);
 reverse(&stringList);
 print(&stringList);
 clearList(&stringList);
+}
+
+void TestDoubleList()
+{
+List doubleList;
+initList(&newList,sizeof(double));
+double i =10.5;
+int k = 15.5;
+int d = 45.2;
+int b = 20.61;
+addHead(&doubleList,&i);
+addHead(&doubleList,&k);
+addHead(&doubleList,&d);
+addTail(&doubleList,&b);
+Insert(&doubleList,&i+15.212,0);
+Insert(&doubleList,&i+11.754,6);
+Insert(&doubleList,&i+33.196,9);
+print(&doubleList);
+Delete(&doubleList,0);
+sort(&doubleList);
+print(&doubleList);
+reverse(&doubleList);
+print(&doubleList);
+clearList(&doubleList);
 }

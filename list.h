@@ -24,7 +24,7 @@ void print(List*list);
 void reverse(List*list);
 void TestIntList();
 void TestStringList();
-
+void TestDoubleList();
 
 
 
