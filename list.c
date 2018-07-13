@@ -3,13 +3,28 @@
 #include<stdlib.h>
 #include<string.h>
 #include "Sort_list.h"
+/**
+* initList - initiation of the list
+* @list - the list which need to be initiated
+* @SizeOfElements - size of elements which will be in the list
+*
+* That function initiate the list. This is the first function you must to use to work with the list.
+*
+*/
 void initList(List*list, int SizeOfElements)
 {
 	list->head = list->tail = NULL;
 	list->SizeOfElements = SizeOfElements;
 	list->Length = 0;
 }
-
+/**
+* addHead - add head to the list.
+* @list - the list in what we want to add the head.
+* @DATA - information,arrays,numbers.
+* 
+* This function adds head to the chosen list.
+*
+*/
 void addHead(List*list,void *DATA)
 {
 	Node*theNewHead = malloc (sizeof(Node));
@@ -25,6 +40,15 @@ void addHead(List*list,void *DATA)
 	list->Length++;
 	printf("the Head added!\n");
 }
+
+/**
+* addTail - add tail to the list.
+* @list - the list in what we want to add the tail.
+* @DATA - information,arrays,numbers.
+* 
+* This function adds tail to the chosen list.
+*
+*/
 
 void addTail(List*list,void*DATA)
 {	
@@ -46,6 +70,13 @@ void addTail(List*list,void*DATA)
 	list->Length++;
 	printf("the Tail added!\n");
 }
+/**
+* clearList - deleting all information from the nodes
+* @list - the list which need to be freed
+*
+* This function frees the memory which was allocated and delete the data in the list.
+*/
+
 void clearList(List*list)
 {
 	Node * current = list->head;
@@ -61,7 +92,16 @@ void clearList(List*list)
 list->head = NULL;
 printf("the data from the list has been successfully removed !\n");
 }
-
+/**
+* Insert - inserting the node at exact position.
+* @list - the list to insert the node
+* @DATA - the data that need to be inserted.
+* @position - position in the list to paste the data.
+*
+* This function has a lot of checking by position. If position 0, call function 'addHead', if position is list->Length +1, call addTail.
+* Then if we haven't added the node earlier, traversing the list, and find the position to insert the data.
+*
+*/
 void Insert (List*list,void *DATA,int position)
 {	if(position <0 || position >list->Length+1)
 	{
@@ -106,7 +146,14 @@ void Insert (List*list,void *DATA,int position)
 	
 	
 }
-
+/**
+* Delete - deleting the node at exact position
+* @list - the list to do operation
+* @position - at that position we do the deletion
+*
+* That function frees the memory that used data and the node.
+*
+*/
 void Delete (List*list,int position)
 {
 	if(position <0 || position >list->Length-1)
@@ -168,7 +215,14 @@ void Delete (List*list,int position)
 	i++;
 	}
 }
-
+/**
+* reverse - the nodes are pointing to the opposite direction.
+* @list - the list to do the operation
+*
+* That function reversing the pointers and repoint the head and the tail.
+* ||->||->||->||->NULL
+* NULL<-||<-||<-||<-|| 
+*/
 void reverse (List*list)
 {
 	Node* current,*prev,*next,*tmptail;
@@ -187,7 +241,13 @@ void reverse (List*list)
 	list->tail = tmptail;
 	list->tail->next = NULL;
 }
-
+/**
+* print - print all the nodes
+* @list - the list to do the operation
+*
+* That function could print the data of different data types.
+*
+*/
 void print(List*list) {
 
 Node *theNode = list->head ; 
@@ -238,6 +298,14 @@ if(list->SizeOfElements == sizeof(double))
 	return;
 		}
 }
+/**
+* TestIntList
+* TestStringList
+* TestDoubleList
+*	
+* that functions shows the usage of all methods that have been written.
+*
+*/
 
 void TestIntList()
 {
