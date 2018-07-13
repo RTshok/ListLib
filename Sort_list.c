@@ -31,6 +31,14 @@ void swap(Node*a , Node*b)
     b->data = temp;
 
 }
+
+/**
+* sort - the sorting function
+* @list - the list that you want to be sorted.
+*
+* I used bubble sort algorithm to sort the list. It can sort three data types(could be updated in future)
+* There are comparing functions to compare which data is bigger. And the swap function, which swaps the data.
+*/
 void sort(List*list)
 {
 	if(list->SizeOfElements == sizeof(int))
