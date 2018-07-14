@@ -1,6 +1,7 @@
 #include "list.h"
 #include "Sort_list.h"
 #include <string.h>
+#include<stdio.h>
 
 int cmp_int (const void *a ,const void *b)
 {

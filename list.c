@@ -117,13 +117,14 @@ void Insert (List*list,void *DATA,int position)
 {
 	addTail(list,DATA);
 	return ;
-}
+}	
 
 	Node*theNewNode = malloc(sizeof(Node));
 	theNewNode->data = malloc(sizeof(list->SizeOfElements));
 	memcpy(theNewNode->data, DATA, list->SizeOfElements);
 	Node*tmp = list->head;
 	Node*prev = NULL;
+	
 	int i = 0;
 	while(1)
 	{	if(i!=position-1)
@@ -257,9 +258,9 @@ if(list->head==NULL)
 	printf("the List is empty!\n");
 	return;
 		}
-
 if(list->SizeOfElements == sizeof(char*))
 		{
+
 	int i = 0;
 	while(theNode!=NULL)
 	{	
@@ -273,7 +274,6 @@ if(list->SizeOfElements == sizeof(char*))
 
 if(list->SizeOfElements == sizeof(int))
 		{
-
 	int i = 0;
 	while(theNode!=NULL)
 	{	
@@ -288,9 +288,10 @@ if(list->SizeOfElements == sizeof(int))
 if(list->SizeOfElements == sizeof(double))
 		{
 	int i = 0;
+	
 	while(theNode!=NULL)
 	{	
-	printf("theNode %i has data :%f\n",i,*(double*)theNode->data);
+	printf("theNode %i has data :%lf\n",i,*(double*)theNode->data);
 	theNode = theNode->next;
 	i++;
 	}
@@ -298,18 +299,8 @@ if(list->SizeOfElements == sizeof(double))
 	return;
 		}
 }
-/**
-* TestIntList
-* TestStringList
-* TestDoubleList
-*	
-* that functions shows the usage of all methods that have been written.
-*
-*/
-
-void TestIntList()
+void TestIntList (List newList)
 {
-List newList;
 initList(&newList,sizeof(int));
 int i =10;
 int k = 15;
@@ -330,21 +321,22 @@ reverse(&newList);
 print(&newList);
 clearList(&newList);
 }
-void TestStringList()
+
+void TestStringList(List stringList)
 {
-List stringList;
 int numPlanets = 8;
 char * planets[] = {"Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"};
 initList(&stringList,sizeof(char*));
 char *planet ;
 for(int i = 0; i<numPlanets; i++){
 planet = strdup(planets[i]);
-addHead(&stringList,&planet);
+Insert(&stringList,&planet,i);
 
 }
 print(&stringList);
-char * newPlanet = "AlphaCentaura";
+char *newPlanet = "AlphaCentaura";
 Insert(&stringList,&newPlanet,4);
+
 print(&stringList);
 Delete(&stringList,0);
 print(&stringList);
@@ -353,24 +345,25 @@ print(&stringList);
 reverse(&stringList);
 print(&stringList);
 clearList(&stringList);
+
 }
 
-void TestDoubleList()
+void TestDoubleList(List doubleList)
 {
-List doubleList;
-initList(&newList,sizeof(double));
+initList(&doubleList,sizeof(double));
 double i =10.5;
-int k = 15.5;
-int d = 45.2;
-int b = 20.61;
+double k = 15.5;
+double d = 45.2;
+double b = 20.61;
 addHead(&doubleList,&i);
 addHead(&doubleList,&k);
 addHead(&doubleList,&d);
 addTail(&doubleList,&b);
-Insert(&doubleList,&i+15.212,0);
-Insert(&doubleList,&i+11.754,6);
-Insert(&doubleList,&i+33.196,9);
+Insert(&doubleList,&i,0);
+Insert(&doubleList,&i,6);
+Insert(&doubleList,&i,9);
 print(&doubleList);
+printf("huinya\n");
 Delete(&doubleList,0);
 sort(&doubleList);
 print(&doubleList);

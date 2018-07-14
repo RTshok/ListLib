@@ -9,9 +9,11 @@
 * 
 */
 int main () {
+List newList,stringList;
+TestIntList(newList);
+TestStringList(stringList);
 
-TestIntList();
-TestStringList();
+
 
 return 0;
 }
