@@ -17,13 +17,6 @@ int cmp_strings(const void *a,const void *b)
 	
 	return strcmp(val1,val2);
 }
-int cmp_double (const void *a,const void *b)
-{
-	double val1 = *(double*)a;
-	double val2 = *(double*)b;
-
-	return(val1-val2);
-}
 void swap(Node*a , Node*b)
 {	
 	
@@ -90,28 +83,6 @@ void sort(List*list)
 	}while(swapped);
 	}
 
-	if(list->SizeOfElements == sizeof(double))
-	{
-	Node* tmp = list->head;
-		Node* lastNode =NULL;
-		int swapped;
-		if(tmp == NULL)
-		return;
-	do{
-	swapped = 0;
-	tmp = list->head;
-	while(tmp->next !=lastNode)
-	{
-		if(cmp_double(tmp->data,tmp->next->data)>0)
-		{
-			swap(tmp,tmp->next);
-			swapped = 1;
-		}
-		tmp = tmp->next;
-	}
-	
-	lastNode = tmp;
-	}while(swapped);
-	}
+
 	printf("the List has been sorted!\n");
 }

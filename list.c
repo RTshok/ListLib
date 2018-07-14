@@ -241,6 +241,7 @@ void reverse (List*list)
 	list->head = prev;
 	list->tail = tmptail;
 	list->tail->next = NULL;
+    printf("The list has been reversed!\n");
 }
 /**
 * print - print all the nodes
@@ -285,19 +286,6 @@ if(list->SizeOfElements == sizeof(int))
 	return;
 		}
 
-if(list->SizeOfElements == sizeof(double))
-		{
-	int i = 0;
-	
-	while(theNode!=NULL)
-	{	
-	printf("theNode %i has data :%lf\n",i,*(double*)theNode->data);
-	theNode = theNode->next;
-	i++;
-	}
-	printf("the Length is : %i \n",list->Length);
-	return;
-		}
 }
 void TestIntList (List newList)
 {
@@ -348,26 +336,3 @@ clearList(&stringList);
 
 }
 
-void TestDoubleList(List doubleList)
-{
-initList(&doubleList,sizeof(double));
-double i =10.5;
-double k = 15.5;
-double d = 45.2;
-double b = 20.61;
-addHead(&doubleList,&i);
-addHead(&doubleList,&k);
-addHead(&doubleList,&d);
-addTail(&doubleList,&b);
-Insert(&doubleList,&i,0);
-Insert(&doubleList,&i,6);
-Insert(&doubleList,&i,9);
-print(&doubleList);
-printf("huinya\n");
-Delete(&doubleList,0);
-sort(&doubleList);
-print(&doubleList);
-reverse(&doubleList);
-print(&doubleList);
-clearList(&doubleList);
-}
